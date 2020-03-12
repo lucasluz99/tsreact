@@ -9,7 +9,7 @@ export function* load() {
   try {
     const response = yield call(api.get, 'users/lucasluz99/repos');
 
-
+    console.log(response.data);
     yield put(RepositoriesActions.loadSuccess(response.data));
   } catch (err) {
     yield put(RepositoriesActions.loadFailure());

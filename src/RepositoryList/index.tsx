@@ -5,6 +5,8 @@ import { ApplicationState } from '../store';
 import * as RepositoriesActions from '../store/ducks/repositories/actions';
 import { Repository } from '../store/ducks/repositories/types';
 
+import { List } from './styles';
+
 interface StateProps {
   repositories: Repository[]
 }
@@ -26,8 +28,15 @@ class RepositoryList extends Component<Props> {
 
   render() {
     const { repositories } = this.props;
+    console.log(repositories);
     return (
-      <ul>{repositories.map((repo) => <li key={repo.id}>{repo.name}</li>)}</ul>
+      <List>
+        {repositories.map((repo) => (
+          <li key={repo.id}>
+            {repo.name}
+          </li>
+        ))}
+      </List>
     );
   }
 }
